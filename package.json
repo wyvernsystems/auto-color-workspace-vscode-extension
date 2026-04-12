@@ -7,12 +7,12 @@
   "publisher": "ronpicard",
   "repository": {
     "type": "git",
-    "url": "https://github.com/ronpicard/auto-color-workspace-vscode-extension.git"
+    "url": "https://github.com/wyvernsystems/auto-color-workspace-vscode-extension.git"
   },
   "bugs": {
-    "url": "https://github.com/ronpicard/auto-color-workspace-vscode-extension/issues"
+    "url": "https://github.com/wyvernsystems/auto-color-workspace-vscode-extension/issues"
   },
-  "homepage": "https://github.com/ronpicard/auto-color-workspace-vscode-extension#readme",
+  "homepage": "https://github.com/wyvernsystems/auto-color-workspace-vscode-extension#readme",
   "engines": {
     "vscode": "^1.85.0"
   },

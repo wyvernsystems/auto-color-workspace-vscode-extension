@@ -59,8 +59,8 @@ Press **F5** in this repo to open an Extension Development Host (see `.vscode/la
 
 1. **Align identity**  
    - In [Manage publishers](https://marketplace.visualstudio.com/manage), create a publisher and note the **publisher ID**.  
-   - Set `"publisher"` in `package.json` to that exact ID (this repo uses `ronpicard` as a placeholder—**change it** if yours differs).  
-   - If your GitHub repo URL differs, update `repository`, `bugs`, and `homepage` in `package.json` and the Marketplace link above.
+   - Set `"publisher"` in `package.json` to that exact ID (this repo currently uses `ronpicard` for the Marketplace listing; **change it** if you publish under another publisher).  
+   - Source code for this extension lives at [github.com/wyvernsystems/auto-color-workspace-vscode-extension](https://github.com/wyvernsystems/auto-color-workspace-vscode-extension); `repository`, `bugs`, and `homepage` in `package.json` should stay in sync with that URL.
 
 2. **Personal Access Token**  
    - In [Azure DevOps](https://dev.azure.com), create a PAT with scope **Marketplace → Manage**.  
