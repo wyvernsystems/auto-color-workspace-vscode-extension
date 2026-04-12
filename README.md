@@ -55,6 +55,16 @@ npm run compile
 
 Press **F5** in this repo to open an Extension Development Host (see `.vscode/launch.json`).
 
+### Git: push to [wyvernsystems](https://github.com/wyvernsystems)
+
+This repository is configured to use **`origin`** → `git@github.com:wyvernsystems/auto-color-workspace-vscode-extension.git` with a **dedicated SSH key** via local `core.sshCommand` (`~/.ssh/id_ed25519_wyvernsystems`, `IdentitiesOnly=yes`). That keeps pushes on this machine tied to the Wyvern Systems GitHub user instead of your default key.
+
+1. While signed in as **wyvernsystems**, open **Settings → SSH and GPG keys** and add the contents of `~/.ssh/id_ed25519_wyvernsystems.pub` (e.g. `pbcopy < ~/.ssh/id_ed25519_wyvernsystems.pub` on macOS, then paste).
+2. Create the GitHub repository **`auto-color-workspace-vscode-extension`** under [wyvernsystems](https://github.com/wyvernsystems) if it does not exist yet (public, empty—no README/license so the first push is clean).
+3. From this directory: `git push -u origin main`.
+
+For `gh` CLI against that account, add it with `gh auth login -h github.com -w` (second account), then `gh auth switch -u wyvernsystems` when you need org/user actions as Wyvern Systems.
+
 ## Maintainer: publish to the Visual Studio Marketplace
 
 1. **Align identity**  
