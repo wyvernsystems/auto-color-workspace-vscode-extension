@@ -1,0 +1,98 @@
+{
+  "name": "autocolor-workspace",
+  "displayName": "AutoColorWorkspace",
+  "description": "Unique pastel title bar, activity bar, and status bar colors per workspace—golden-ratio palette, zero setup.",
+  "version": "0.1.0",
+  "license": "MIT",
+  "publisher": "ronpicard",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ronpicard/auto-color-workspace-vscode-extension.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ronpicard/auto-color-workspace-vscode-extension/issues"
+  },
+  "homepage": "https://github.com/ronpicard/auto-color-workspace-vscode-extension#readme",
+  "engines": {
+    "vscode": "^1.85.0"
+  },
+  "categories": [
+    "Themes"
+  ],
+  "keywords": [
+    "theme",
+    "color",
+    "workspace",
+    "title bar",
+    "activity bar",
+    "status bar",
+    "pastel",
+    "multi-root"
+  ],
+  "galleryBanner": {
+    "color": "#2d2d30",
+    "theme": "dark"
+  },
+  "activationEvents": [
+    "onStartupFinished",
+    "onCommand:autocolor-workspace.enableGlobal",
+    "onCommand:autocolor-workspace.disableGlobal",
+    "onCommand:autocolor-workspace.enableWorkspace",
+    "onCommand:autocolor-workspace.disableWorkspace",
+    "onCommand:autocolor-workspace.resetWorkspaceColors"
+  ],
+  "contributes": {
+    "commands": [
+      {
+        "command": "autocolor-workspace.enableGlobal",
+        "title": "AutoColorWorkspace: Enable (all windows)"
+      },
+      {
+        "command": "autocolor-workspace.disableGlobal",
+        "title": "AutoColorWorkspace: Disable (all windows)"
+      },
+      {
+        "command": "autocolor-workspace.enableWorkspace",
+        "title": "AutoColorWorkspace: Enable for this workspace"
+      },
+      {
+        "command": "autocolor-workspace.disableWorkspace",
+        "title": "AutoColorWorkspace: Disable for this workspace"
+      },
+      {
+        "command": "autocolor-workspace.resetWorkspaceColors",
+        "title": "AutoColorWorkspace: Reset colors (this workspace)"
+      }
+    ],
+    "configuration": {
+      "title": "AutoColorWorkspace",
+      "properties": {
+        "autocolor-workspace.enabled": {
+          "type": "boolean",
+          "default": true,
+          "scope": "application",
+          "description": "Master switch. When false, AutoColorWorkspace does not apply colors in any window."
+        },
+        "autocolor-workspace.workspaceDisabled": {
+          "type": "boolean",
+          "default": false,
+          "scope": "window",
+          "description": "When true, AutoColorWorkspace is off for this workspace only (bar colors are cleared)."
+        }
+      }
+    }
+  },
+  "main": "./out/extension.js",
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "package": "vsce package"
+  },
+  "devDependencies": {
+    "@types/node": "^20.10.0",
+    "@types/vscode": "^1.85.0",
+    "@vscode/vsce": "^3.2.2",
+    "typescript": "^5.3.3"
+  }
+}
