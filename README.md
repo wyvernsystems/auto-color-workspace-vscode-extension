@@ -32,7 +32,7 @@ Open the Command Palette (**Cmd+Shift+P** on Mac, **Ctrl+Shift+P** on Windows/Li
 | **Auto Color: Disable (all windows)** | Turns it off for all windows and clears this extension’s color keys from the current workspace’s `workbench.colorCustomizations`. |
 | **Auto Color: Enable for this workspace** | Turns coloring back on for **this** workspace only (still requires the global switch to be on). |
 | **Auto Color: Disable for this workspace** | Stops coloring **this** workspace and clears this extension’s keys here. |
-| **Auto Color: Set color scope** | Choose **all bars** (title + activity + status) or **head and footer only** (title + status; activity bar follows your normal theme). |
+| **Auto Color: Set color scope** | **All bars**: title + activity + status plus the workbench tint. **Head and footer only**: title + status only; activity bar, editor, sidebar, tabs, panel, and other tinted areas go back to your theme defaults. |
 | **Auto Color: Randomize color** | Picks a new random palette and saves it in workspace settings so it stays after reload. |
 | **Auto Color: Reset to default color** | Removes the random override so the color is derived from the workspace folder path again. |
 

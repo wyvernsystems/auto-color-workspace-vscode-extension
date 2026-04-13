@@ -96,7 +96,7 @@
           "enum": ["all", "headFooter"],
           "default": "all",
           "scope": "window",
-          "description": "Which chrome to color: all bars, or only title and status (head/footer)."
+          "description": "all = title, activity, status + workbench tint. headFooter = title + status only; activity bar and surfaces use the theme."
         },
         "auto-color.randomSeed": {
           "type": "number",

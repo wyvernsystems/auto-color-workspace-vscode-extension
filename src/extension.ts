@@ -312,46 +312,52 @@ async function paintWorkspaceChrome(): Promise<void> {
     next[r.fg] = contrastingForegroundHex(r.bgHex);
   }
 
-  // ── Dark-tinted surface backgrounds (no foreground overrides) ─────────
-  next["sideBar.background"] = sidebarBg;
-  next["sideBar.border"] = borderHex;
-  next["sideBarSectionHeader.background"] = sidebarSectionBg;
-  next["sideBarSectionHeader.border"] = borderHex;
-  next["list.activeSelectionBackground"] = listActiveBg;
-  next["list.hoverBackground"] = listHoverBg;
-  next["list.inactiveSelectionBackground"] = listInactiveBg;
-  next["editor.background"] = editorBg;
-  next["editor.lineHighlightBackground"] = editorHighlightBg;
-  next["editorGutter.background"] = editorBg;
-  next["editorGroupHeader.tabsBackground"] = tabsHeaderBg;
-  next["editorGroupHeader.noTabsBackground"] = tabsHeaderBg;
-  next["tab.inactiveBackground"] = tabInactiveBg;
-  next["tab.activeBackground"] = tabActiveBg;
-  next["tab.border"] = borderHex;
-  next["tab.activeBorder"] = borderHex;
-  next["panel.background"] = panelBg;
-  next["panel.border"] = borderHex;
-  next["terminal.background"] = terminalBg;
-  next["breadcrumb.background"] = breadcrumbBg;
-  next["editorWidget.background"] = widgetBg;
-  next["editorWidget.border"] = borderHex;
-  next["editorGroup.border"] = borderHex;
-  next["activityBar.border"] = borderHex;
-  next["titleBar.border"] = borderHex;
-  next["statusBar.border"] = borderHex;
-  next["welcomePage.background"] = editorBg;
-  next["welcomePage.tileBackground"] = sidebarBg;
-  next["walkThrough.embeddedEditorBackground"] = editorBg;
-  next["editorGroup.emptyBackground"] = editorBg;
-  next["editorPane.background"] = editorBg;
-  next["sideBarTitle.background"] = sidebarBg;
-  next["panelTitle.activeBorder"] = borderHex;
-  next["textBlockQuote.background"] = sidebarBg;
-  next["input.background"] = sidebarBg;
-  next["dropdown.background"] = sidebarBg;
-  next["quickInput.background"] = widgetBg;
-  next["notifications.background"] = widgetBg;
-  next["debugToolBar.background"] = widgetBg;
+  if (scope === "all") {
+    // ── Dark-tinted surfaces (head/footer-only scope skips these → theme defaults) ─
+    next["sideBar.background"] = sidebarBg;
+    next["sideBar.border"] = borderHex;
+    next["sideBarSectionHeader.background"] = sidebarSectionBg;
+    next["sideBarSectionHeader.border"] = borderHex;
+    next["list.activeSelectionBackground"] = listActiveBg;
+    next["list.hoverBackground"] = listHoverBg;
+    next["list.inactiveSelectionBackground"] = listInactiveBg;
+    next["editor.background"] = editorBg;
+    next["editor.lineHighlightBackground"] = editorHighlightBg;
+    next["editorGutter.background"] = editorBg;
+    next["editorGroupHeader.tabsBackground"] = tabsHeaderBg;
+    next["editorGroupHeader.noTabsBackground"] = tabsHeaderBg;
+    next["tab.inactiveBackground"] = tabInactiveBg;
+    next["tab.activeBackground"] = tabActiveBg;
+    next["tab.border"] = borderHex;
+    next["tab.activeBorder"] = borderHex;
+    next["panel.background"] = panelBg;
+    next["panel.border"] = borderHex;
+    next["terminal.background"] = terminalBg;
+    next["breadcrumb.background"] = breadcrumbBg;
+    next["editorWidget.background"] = widgetBg;
+    next["editorWidget.border"] = borderHex;
+    next["editorGroup.border"] = borderHex;
+    next["activityBar.border"] = borderHex;
+    next["titleBar.border"] = borderHex;
+    next["statusBar.border"] = borderHex;
+    next["welcomePage.background"] = editorBg;
+    next["welcomePage.tileBackground"] = sidebarBg;
+    next["walkThrough.embeddedEditorBackground"] = editorBg;
+    next["editorGroup.emptyBackground"] = editorBg;
+    next["editorPane.background"] = editorBg;
+    next["sideBarTitle.background"] = sidebarBg;
+    next["panelTitle.activeBorder"] = borderHex;
+    next["textBlockQuote.background"] = sidebarBg;
+    next["input.background"] = sidebarBg;
+    next["dropdown.background"] = sidebarBg;
+    next["quickInput.background"] = widgetBg;
+    next["notifications.background"] = widgetBg;
+    next["debugToolBar.background"] = widgetBg;
+  } else {
+    for (const key of SURFACE_BG_KEYS) {
+      delete next[key];
+    }
+  }
 
   await workbench.update(
     "colorCustomizations",
@@ -502,7 +508,7 @@ export function activate(context: vscode.ExtensionContext): void {
             {
               label: "Head and footer only",
               description:
-                "Title and status bars only (activity bar unchanged)",
+                "Title + status only; activity bar and workbench tint use your theme",
               value: "headFooter" as const,
               picked: current === "headFooter",
             },
