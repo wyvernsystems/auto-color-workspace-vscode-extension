@@ -2,7 +2,7 @@
   "name": "auto-color",
   "displayName": "Auto Color",
   "description": "Workspace-tinted UI: pastel title, activity, and status bars plus a subtle hue across the workbench—golden-ratio palettes, native-style depth, zero setup.",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "license": "MIT",
   "publisher": "WyvernSystemsLLC",
   "repository": {

@@ -2,6 +2,19 @@
 
 All notable changes to **Auto Color** will be documented in this file.
 
+## [1.0.4] - 2026-04-14
+
+### Added
+
+- **Existing workspace settings:** If `.vscode/settings.json` is already present, or a multi-root `.code-workspace` file already has a non-empty `settings` object, Auto Color **does not** read or write workspace settings on window open, when workspace folders change, or when `auto-color.*` settings change. That avoids silently merging into or overwriting configuration you already rely on. Run a command when you want the tint—for example **Auto Color: Enable for this workspace**, **Randomize color**, **Reset to default color**, **Set color scope**, or **Enable (all windows)** (with a folder open)—to merge colors into `workbench.colorCustomizations` as before.
+- **Greenfield workspaces:** If there is no workspace settings file yet, automatic tint on load is unchanged; the extension still creates `.vscode/settings.json` when it applies colors.
+
+### Changed
+
+- **README:** Expanded **What it does** (when Auto Color stays hands-off vs when you use a command); **File it writes** cross-reference; spelling, grammar, and markdown fixes; **Examples** screenshots wired up again.
+
+[1.0.4]: https://github.com/wyvernsystems/auto-color-vscode-extension/releases/tag/v1.0.4
+
 ## [1.0.3] - 2026-04-13
 
 ### Changed
